@@ -1,0 +1,52 @@
+{
+    "name": "codeigniter4/appstarter",
+    "type": "project",
+    "description": "CodeIgniter4 starter app",
+    "homepage": "https://codeigniter.com",
+    "license": "MIT",
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "codeigniter4/framework": "^4",
+        "twbs/bootstrap": "^5.1",
+        "components/font-awesome": "^6.0",
+        "components/jquery": "^3.6",
+        "twilio/sdk": "^6.34"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9",
+        "mikey179/vfsstream": "^1.6",
+        "phpunit/phpunit": "^9.1"
+    },
+    "suggest": {
+        "ext-fileinfo": "Improves mime type detection for files"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Config\\": "app/Config"
+        },
+        "exclude-from-classmap": [
+            "**/Database/Migrations/**"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Support\\": "tests/_support"
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "rm -rf public/bootstrap",
+            "rm -rf public/jquery",
+            "rm -rf public/font-awesome",
+            "cp -R vendor/twbs/bootstrap/dist public/bootstrap",
+            "cp -R vendor/components/jquery public/jquery",
+            "cp -R vendor/components/font-awesome public/font-awesome"
+        ]
+    },
+    "support": {
+        "forum": "http://forum.codeigniter.com/",
+        "source": "https://github.com/codeigniter4/CodeIgniter4",
+        "slack": "https://codeigniterchat.slack.com"
+    }
+}
